@@ -1,3 +1,4 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -14,9 +15,9 @@ import java.awt.GridLayout;
  * @author Danielle Bushrow (dbushrow)
  * @version 2010.11.17
  */
-public class ChessGameBoard extends JPanel{
+public class ChessGameBoard extends JPanel {
     private BoardSquare[][] chessCells;
-    private BoardListener   listener;
+    private BoardListener listener;
     // ----------------------------------------------------------
     /**
      * Returns the entire board.
@@ -74,7 +75,7 @@ public class ChessGameBoard extends JPanel{
      * @return ArrayList<GamePiece> the pieces
      */
     public ArrayList<ChessGamePiece> getAllWhitePieces(){
-        ArrayList<ChessGamePiece> whitePieces = new ArrayList<ChessGamePiece>();
+        ArrayList<ChessGamePiece> whitePieces = new ArrayList<>();
         for ( int i = 0; i < 8; i++ ){
             for ( int j = 0; j < 8; j++ ){
                 if ( chessCells[i][j].getPieceOnSquare() != null
@@ -93,7 +94,7 @@ public class ChessGameBoard extends JPanel{
      * @return ArrayList<GamePiece> the pieces
      */
     public ArrayList<ChessGamePiece> getAllBlackPieces(){
-        ArrayList<ChessGamePiece> blackPieces = new ArrayList<ChessGamePiece>();
+        ArrayList<ChessGamePiece> blackPieces = new ArrayList<>();
         for ( int i = 0; i < 8; i++ ){
             for ( int j = 0; j < 8; j++ ){
                 if ( chessCells[i][j].getPieceOnSquare() != null
@@ -148,7 +149,6 @@ public class ChessGameBoard extends JPanel{
             }
         }
         repaint();
-        //revalidate();
         // only the combination of these two calls work...*shrug*
     }
     /**
@@ -232,7 +232,7 @@ public class ChessGameBoard extends JPanel{
      * @version 2010.11.16
      */
     private class BoardListener
-        implements MouseListener
+        implements MouseListener, Serializable
     {
         /**
          * Do an action when the left mouse button is clicked.
